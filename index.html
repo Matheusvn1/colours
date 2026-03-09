@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matheus Vinicius - Student 73969</title>
+    <style>
+        /* Centering the entire layout */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Horizontal center */
+            align-items: center;     /* Vertical center */
+            min-height: 100vh;       /* Full screen height */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            transition: background-color 0.4s ease; /* Smooth color fade */
+        }
+
+        /* The container "Box" */
+        section {
+            background-color: #ffffff;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            
+            /* The "More Corners" - nice and rounded */
+            border-radius: 30px; 
+            border: 1px solid #ddd;
+            width: 320px;
+        }
+
+        h2 {
+            margin-bottom: 2rem;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        /* The text displaying the hex code */
+        #box-colour {
+            display: block;
+            margin-top: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* Button Styling */
+        button {
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            
+            /* Rounded corners for the button too */
+            border-radius: 50px; 
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+            transform: translateY(-3px); /* Subtle lift effect */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h2>Background Color: <span id="box-colour">#f4f4f9</span></h2>
+        <button id="btn-change-colour">Click me</button>
+    </section>
+
+    <script>
+        const button = document.getElementById('btn-change-colour');
+        const boxColourDisplay = document.getElementById('box-colour');
+
+        button.addEventListener('click', () => {
+            // Logic to generate a random hex color
+            const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+            
+            // Applying changes
+            document.body.style.backgroundColor = randomColor;
+            boxColourDisplay.textContent = randomColor.toUpperCase();
+        });
+    </script>
+</body>
+</html>
